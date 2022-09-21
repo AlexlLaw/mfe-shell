@@ -1,0 +1,4 @@
+{
+  "production": false,
+  "internetBankingApi": "https://sicredi.hom.sicredi.net/internetbanking/bff",
+}

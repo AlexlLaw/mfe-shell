@@ -1,0 +1,84 @@
+{
+  "root": true,
+  "ignorePatterns": [],
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.ts"
+      ],
+      "parserOptions": {
+        "project": [
+          "tsconfig.json"
+        ],
+        "createDefaultProgram": true
+      },
+      "extends": [
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates"
+      ],
+      "rules": {
+        "@typescript-eslint/no-non-null-assertion": "off",
+        "@typescript-eslint/no-namespace": "off",
+        "@angular-eslint/no-empty-lifecycle-method": [
+          "error"
+        ],
+        "@angular-eslint/use-lifecycle-interface": [
+          "error"
+        ],
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "type": "attribute",
+            "prefix": "if-shell",
+            "style": "camelCase"
+          }
+        ],
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "type": "element",
+            "prefix": "if-shell",
+            "style": "kebab-case"
+          }
+        ],
+        "semi": "off",
+        "@typescript-eslint/semi": [
+          "error",
+          "always"
+        ],
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": [
+          "error",
+          {
+            "vars": "all",
+            "args": "after-used",
+            "ignoreRestSiblings": false
+          }
+        ],
+        "yoda": "error",
+        "indent": [
+          "error",
+          2
+        ],
+        "no-var": "error"
+      }
+    },
+    {
+      "files": [
+        "*.html"
+      ],
+      "extends": [
+        "plugin:@angular-eslint/template/recommended"
+      ],
+      "rules": {}
+    }
+  ]
+}

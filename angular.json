@@ -1,0 +1,155 @@
+{
+	"$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+	"version": 1,
+	"cli": {
+		"packageManager": "yarn",
+		"analytics": false,
+		"schematicCollections": "@angular-eslint/schematics"
+	},
+	"newProjectRoot": "projects",
+	"projects": {
+		"shell": {
+			"projectType": "application",
+			"schematics": {
+				"@schematics/angular:component": {
+					"inlineTemplate": true,
+					"inlineStyle": true,
+					"skipTests": true,
+					"style": "scss"
+				},
+				"@schematics/angular:class": {
+					"skipTests": true
+				},
+				"@schematics/angular:directive": {
+					"skipTests": true
+				},
+				"@schematics/angular:guard": {
+					"skipTests": true
+				},
+				"@schematics/angular:interceptor": {
+					"skipTests": true
+				},
+				"@schematics/angular:pipe": {
+					"skipTests": true
+				},
+				"@schematics/angular:resolver": {
+					"skipTests": true
+				},
+				"@schematics/angular:service": {
+					"skipTests": true
+				}
+			},
+			"root": "projects/shell",
+			"sourceRoot": "projects/shell/src",
+			"prefix": "if-shell",
+			"architect": {
+				"build": {
+					"builder": "ngx-build-plus:browser",
+					"options": {
+						"outputPath": "dist/mfe/shell",
+						"index": "projects/shell/src/index.html",
+						"main": "projects/shell/src/main.ts",
+						"polyfills": "projects/shell/src/polyfills.ts",
+						"tsConfig": "projects/shell/tsconfig.app.json",
+						"assets": [
+							"projects/shell/src/favicon.ico",
+							"projects/shell/src/assets"
+						],
+						"styles": [
+							"projects/shell/src/styles.scss",
+							"projects/shell/src/assets/scss/colors-custom.scss"
+						],
+						"scripts": [
+							"./node_modules/jquery/dist/jquery.min.js"
+						],
+						"extraWebpackConfig": "projects/shell/webpack.config.js",
+						"commonChunk": false
+					},
+					"configurations": {
+						"production": {
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "500kb",
+									"maximumError": "1mb"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "2kb",
+									"maximumError": "4kb"
+								}
+							],
+							"fileReplacements": [
+								{
+									"replace": "projects/shell/src/environments/environment.ts",
+									"with": "projects/shell/src/environments/environment.prod.ts"
+								}
+							],
+							"outputHashing": "all",
+							"extraWebpackConfig": "projects/shell/webpack.prod.config.js"
+						},
+						"development": {
+							"buildOptimizer": false,
+							"optimization": false,
+							"vendorChunk": true,
+							"extractLicenses": false,
+							"sourceMap": true,
+							"namedChunks": true
+						}
+					},
+					"defaultConfiguration": "production"
+        },
+        "e2e": {
+          "builder": "ngx-build-plus:dev-server",
+          "options": {
+            "browserTarget": "shell:build",
+            "extraWebpackConfig": "./cypress/coverage.webpack.js"
+          }
+        },
+				"serve": {
+					"builder": "ngx-build-plus:dev-server",
+					"configurations": {
+						"production": {
+							"browserTarget": "shell:build:production",
+							"extraWebpackConfig": "projects/shell/webpack.prod.config.js"
+						},
+						"development": {
+							"browserTarget": "shell:build:development"
+						}
+					},
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 4200,
+						"publicHost": "http://localhost:4200",
+						"extraWebpackConfig": "projects/shell/webpack.config.js"
+					}
+				},
+				"lint": {
+					"builder": "@angular-eslint/builder:lint",
+					"options": {
+						"lintFilePatterns": [
+							"projects/shell/**/*.ts",
+							"projects/shell/**/*.html"
+						]
+					}
+				},
+				"extract-i18n": {
+					"builder": "ngx-build-plus:extract-i18n",
+					"options": {
+						"browserTarget": "shell:build",
+						"extraWebpackConfig": "projects/shell/webpack.config.js"
+					}
+				},
+				"test": {
+					"builder": "@angular-builders/jest:run",
+					"options": {
+						"main": "projects/shell/src/test.ts",
+						"tsConfig": "./tsconfig.spec.json",
+						"codeCoverage": true
+					}
+				}
+			}
+		}
+	},
+	"defaultProject": "shell"
+}

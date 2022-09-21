@@ -1,0 +1,27 @@
+$primary: #DD2F6E;
+$color-dark:  #1D2231;
+
+
+$theme-colors: (
+    "primary": $primary,
+    "secondary":$color-dark,
+    "secondary-light": #13849644,
+    "info": $primary,
+    "danger": red,
+    "danger-dark": #69171a,
+    "warning": yellow,
+    "white": white,
+    "warning-light": #fdd77d,
+    "success": green,
+    "success-light": #bad6ab,
+    "dark": $color-dark,
+    "dark-shadow": rgb(0,0,0, 0.08),
+    "blue-light" :#00bbfa,
+    "text-gray": #8390A2
+);
+
+:root {
+  @each $var, $value in $theme-colors{
+      --#{$var}-color: #{$value} !important;
+  }
+}

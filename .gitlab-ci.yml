@@ -1,0 +1,95 @@
+include:
+  - remote: https://gitlab.sicredi.net/devconsole/dev-console-ci/raw/master/sicredi-devconsole-ci.yaml
+
+stages:
+  - install
+  - lint
+  - unit-test
+  - gate-qualidade-codigo
+  - build
+  - package
+  - deploy
+
+"Install":
+  stage: install
+  image: harbor.sicredi.net/docker-base-images/node:node-16
+  script:
+  - npm install
+  only:
+    - branches
+    - merge_requests
+    - tags
+  artifacts:
+    paths:
+      - node_modules/*
+
+"Lint":
+  stage: lint
+  image: harbor.sicredi.net/docker-base-images/node:node-16
+  script:
+  - npm run lint
+  only:
+  - /^hotfix/.*$/
+  - merge_requests
+  - master
+  artifacts:
+    paths:
+      - node_modules/*
+
+testes unitarios:
+  stage: unit-test
+  image: harbor.sicredi.net/docker-base-images/node:node-16
+  script:
+    - npm run test
+  artifacts:
+    paths:
+      - node_modules/*
+      - coverage/*
+  only:
+   - /^hotfix/.*$/
+   - merge_requests
+   - master
+
+"Build Develop":
+  stage: build
+  image: harbor.sicredi.net/docker-base-images/node:node-16
+  script:
+    - ls -la
+    - npm run build
+  artifacts:
+    untracked: true
+    expire_in: 1 hour
+    paths:
+      - dist/*
+  only:
+  - branches
+  - merge_requests
+  - tags
+  allow_failure: false
+  dependencies:
+  - Install
+
+## Extensions da sicredi-devconsole-ci.yaml
+
+"Gate de Qualidade":
+  extends: .gate-qa
+  except:
+    - /^feature/.*$/
+
+"Build do docker (Develop)":
+  extends: .harbor-build-develop
+
+"Deploy DEV (Develop)":
+  extends: .deploy.k8s.dev
+
+"Build do docker (Tag)":
+  extends: .harbor-build-stage
+
+"Deploy UAT/Homolog (Tag)":
+  extends: .deploy.k8s.uat
+
+"Deploy STRESS/pre-prod (Tag)":
+  extends: .deploy.k8s.stress
+
+"Deploy Producao (Tag)":
+  extends: .deploy.k8s.prod

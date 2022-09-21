@@ -1,0 +1,5 @@
+#Cypress
+/projects/**/cypress/**
+**/*.spec.ts
+**/node_modules
+/projects/**/node_modules/**

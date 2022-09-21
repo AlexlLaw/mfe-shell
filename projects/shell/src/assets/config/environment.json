@@ -1,0 +1,4 @@
+{
+  "production": false,
+  "internetBankingApi": "https://internetbanking-bff-main.dev.sicredi.cloud",
+}
