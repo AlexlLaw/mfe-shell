@@ -2,14 +2,17 @@ import { loadRemoteModule } from '@angular-architects/module-federation';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { AuthGuard } from './core/auth/auth.guard';
 import { LayoutAuthComponent } from './core/components/layout-auth/page/layout-auth.component';
-import { NoLayoutAuthComponent } from './core/components/no-layout-auth/page/no-layout-auth.component';
-
+import {
+  NoLayoutAuthComponent
+} from './core/components/no-layout-auth/page/no-layout-auth.component';
 
 const routes: Routes = [
   {
     path: '',
     component: LayoutAuthComponent,
+    canActivate: [AuthGuard],
     children: [
       {
         path: '',

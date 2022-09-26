@@ -10,12 +10,7 @@ export const navbarData = [
     label: 'Usuarios'
   },
   {
-    routeLink: 'conta',
-    icon: 'fal fa-box-open',
-    label: 'Contas'
-  },
-  {
-    routeLink: 'conta',
+    routeLink: 'configuracao',
     icon: 'fal fa-box-open',
     label: 'Configuração'
   }

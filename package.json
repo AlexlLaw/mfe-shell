@@ -37,6 +37,7 @@
     "istanbul-instrumenter-loader": "^3.0.1",
     "jira.js": "^2.15.7",
     "jquery": "^3.6.1",
+    "jwt-decode": "^3.1.2",
     "rxjs": "~7.5.0",
     "sass": "^1.54.9",
     "tm4j-cypress-integration": "^0.0.5",
