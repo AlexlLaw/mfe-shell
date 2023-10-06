@@ -8,6 +8,7 @@ import {
 import {
   Component, EventEmitter, HostListener, OnInit, Output
 } from "@angular/core";
+import { TokenService } from "../../../../auth/token/token.service";
 import { navbarData } from "./nav-data";
 
 interface SideNavToggle {
@@ -51,6 +52,10 @@ export class SidebarAuthComponent implements OnInit {
   public screenWidth = 0;
   public navData = navbarData;
 
+  constructor(private tokenService: TokenService) {
+
+  }
+
   @HostListener("window:resize", ["$event"])
   public onResize(event: any) {
     console.log('onresize', event);
@@ -65,6 +70,7 @@ export class SidebarAuthComponent implements OnInit {
   }
 
   ngOnInit(): void {
+   
     this.screenWidth = window.innerWidth;
   }
 

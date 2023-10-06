@@ -36,7 +36,8 @@ module.exports = {
       remoteType: "var",
       remotes: {
         usuario: "http://localhost:4100/remoteEntry.js",
-        auth: "http://localhost:4300/remoteEntry.js"
+        auth: "http://localhost:4300/remoteEntry.js",
+        finances: "http://localhost:3000/remoteEntry.js"
       },
 
         // For remotes (please adjust)

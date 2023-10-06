@@ -1,17 +1,22 @@
 export const navbarData = [
   {
     routeLink: '',
-    icon: 'fal fa-home',
-    label: 'Dashboard'
+    icon: 'D',
+    label: 'Dashboard',
   },
   {
     routeLink: 'usuarios',
-    icon: 'fal fa-box-open',
+    icon: 'U',
     label: 'Usuarios'
   },
   {
+    routeLink: 'finances',
+    icon: 'U',
+    label: 'Financas'
+  },
+  {
     routeLink: 'configuracao',
-    icon: 'fal fa-box-open',
+    icon: 'C',
     label: 'Configuração'
   }
 ];

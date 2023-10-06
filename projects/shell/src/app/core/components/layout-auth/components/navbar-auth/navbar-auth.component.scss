@@ -1,6 +1,6 @@
 .head {
   width: calc(100% - 5rem);
-  margin-left:  5rem;
+  margin-left: 5rem;
   z-index: 1;
   transition: all .5s ease;
   background: #f4f7fa;
@@ -127,6 +127,7 @@
   width: calc(100% - 5rem);
   margin-left: 5rem;
 }
+
 @keyframes pulse-animation {
   0% {
     box-shadow: 0 0 0 0 rgba(26, 104, 206, 0.6);
