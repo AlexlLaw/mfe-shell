@@ -12,17 +12,12 @@ interface SideNavToggle {
   // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'if-shell-layout-auth',
   template: `
-    <if-shell-sidebar-auth 
-      (onToggleSideNav)="onToggleSideNav($event)">
-    </if-shell-sidebar-auth>
-    
-    <!-- <if-shell-navbar-auth 
-      [collapset]="isSideNavCollapsed">
-      [screenWidth]="screenWidth"
-    </if-shell-navbar-auth> -->
+    <if-shell-navbar-categories>
+    </if-shell-navbar-categories>
+    <if-shell-navbar-subCategories>
+    </if-shell-navbar-subCategories>
 
-    <if-shell-body 
-     [collapsed]="isSideNavCollapsed">
+    <if-shell-body>
     </if-shell-body>
   `,
   styles: [

@@ -6,22 +6,24 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BodyComponent } from './core/components/layout-auth/components/body/body.component';
-import { NavbarAuthComponent } from './core/components/layout-auth/components/navbar-auth/navbar-auth.component';
+import { NavbarCategoriesComponent } from './core/components/layout-auth/components/navbars/navbar-categories/navbar-categories.component';
 import { SidebarAuthComponent } from './core/components/layout-auth/components/sidebar-auth/sidebar-auth.component';
 import { LayoutAuthComponent } from './core/components/layout-auth/page/layout-auth.component';
 import { NoLayoutAuthComponent } from './core/components/no-layout-auth/page/no-layout-auth.component';
 import { ErrorHandlerInterceptor } from './core/interceptors/error-handler.interceptor';
+import { NavbarSubcategoriesComponent } from './core/components/layout-auth/components/navbars/navbar-subcategories/navbar-subcategories.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarAuthComponent,
+    NavbarCategoriesComponent,
     SidebarAuthComponent,
     BodyComponent,
     LayoutAuthComponent,
     NoLayoutAuthComponent,
+    NavbarSubcategoriesComponent,
   ],
   imports: [
     BrowserModule,

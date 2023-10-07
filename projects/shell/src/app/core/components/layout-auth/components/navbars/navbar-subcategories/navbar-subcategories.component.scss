@@ -1,0 +1,59 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+  }
+  
+  .left a {
+    text-decoration: none;
+    color: white;
+    font-size: 24px;
+  }
+  
+  .center ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+  }
+  
+  .center li {
+    margin: 0 20px;
+  }
+  
+  .center a {
+    text-decoration: none;
+    color: white;
+  }
+  
+  .right {
+    display: flex;
+  }
+  
+  .btn-register,
+  .btn-login {
+    background-color: #f00; /* Cor de fundo dos botões */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+  }
+  
+/* Estilos para telas menores (por exemplo, até 768px) */
+@media (max-width: 768px) {
+    .navbar {
+      justify-content: center;
+    }
+  
+    .left a {
+      display: none;
+    }
+
+    .right {
+      display: none;
+    }
+  }
+  

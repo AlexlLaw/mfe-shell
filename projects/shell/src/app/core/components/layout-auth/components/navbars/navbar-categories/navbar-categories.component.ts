@@ -1,16 +1,16 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { Subscription, tap } from "rxjs";
-import { ToogleService } from "../../../../services/tootleService.service";
-import { ToogleAction } from "../../../../utils/dispach/actions/toogleAction";
-import { ComponentEvent } from "../../../../utils/dispach/component.event";
+import { ToogleService } from "../../../../../services/tootleService.service";
+import { ToogleAction } from "../../../../../utils/dispach/actions/toogleAction";
+import { ComponentEvent } from "../../../../../utils/dispach/component.event";
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
-  selector: "if-shell-navbar-auth",
-  templateUrl: "./navbar-auth.component.html",
-  styleUrls: ["./navbar-auth.component.scss"],
+  selector: "if-shell-navbar-categories",
+  templateUrl: "./navbar-categories.component.html",
+  styleUrls: ["./navbar-categories.component.scss"],
 })
-export class NavbarAuthComponent implements OnInit {
+export class NavbarCategoriesComponent implements OnInit {
   @Input() public collapset = false;
   @Input() public screenWidth = 0;
   private subscription: Subscription = new Subscription();
