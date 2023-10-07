@@ -5,31 +5,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BodyComponent } from './core/components/layout-auth/components/body/body.component';
-import { NavbarCategoriesComponent } from './core/components/layout-auth/components/navbars/navbar-categories/navbar-categories.component';
-import { SidebarAuthComponent } from './core/components/layout-auth/components/sidebar-auth/sidebar-auth.component';
-import { LayoutAuthComponent } from './core/components/layout-auth/page/layout-auth.component';
+
 import { NoLayoutAuthComponent } from './core/components/no-layout-auth/page/no-layout-auth.component';
 import { ErrorHandlerInterceptor } from './core/interceptors/error-handler.interceptor';
-import { NavbarSubcategoriesComponent } from './core/components/layout-auth/components/navbars/navbar-subcategories/navbar-subcategories.component';
-
-
+import { layoutAuthModule } from './core/components/layout-auth/page/layout-auth.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarCategoriesComponent,
-    SidebarAuthComponent,
-    BodyComponent,
-    LayoutAuthComponent,
     NoLayoutAuthComponent,
-    NavbarSubcategoriesComponent,
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
-    BrowserAnimationsModule
+    layoutAuthModule
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

@@ -3,68 +3,27 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { LayoutAuthComponent } from './core/components/layout-auth/page/layout-auth.component';
-import {
-  NoLayoutAuthComponent
-} from './core/components/no-layout-auth/page/no-layout-auth.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'esportes',
     component: LayoutAuthComponent,
-    // canActivate: [AuthGuard],
     children: [
       {
-        path: '',
-        loadChildren: () => import('./features/home/home.module').then(m => m.HomeModule),
-      },
-      {
-        path: 'usuarios',
-        loadChildren: () => loadRemoteModule(
-          { 
-            type: 'module',
-            remoteEntry: 'http://localhost:4100/remoteEntry.js',
-            exposedModule: './Module',
-          }
-        ).then(mfe => mfe.ContainerAuthModule),
-        data: {
-          loaderMessage: 'Carregando conteúdo.'
-        },
-      },
-      {
-        path: 'finances',
+        path: 'preMatch',
         loadChildren: () => loadRemoteModule(
           { 
             type: 'module',
             remoteEntry: 'http://localhost:3000/remoteEntry.js',
             exposedModule: './Module',
           }
-        ).then(mfe => mfe.ContainerAuthModule),
-        data: {
-          loaderMessage: 'Carregando conteúdo.'
-        },
-      },
-    ]
-  },
-  {
-    path: 'auth',
-    component: NoLayoutAuthComponent,
-    children: [
-      {
-        path: '',
-        loadChildren: () => loadRemoteModule(
-          { 
-            type: 'module',
-            remoteEntry: 'http://localhost:4300/remoteEntry.js',
-            exposedModule: './Module',
-          }
-        ).then(mfe => mfe.ContainerAuthModule),
+        ).then(mfe => mfe.AppModule),
         data: {
           loaderMessage: 'Carregando conteúdo.'
         },
       }
     ]
-  },
- 
+  }
 ];
 
 @NgModule({

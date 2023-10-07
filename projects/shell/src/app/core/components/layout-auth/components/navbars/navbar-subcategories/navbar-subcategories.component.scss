@@ -1,59 +1,122 @@
+$selected-color: #f00; // Cor de destaque para a opção selecionada
+$default-color: #333; // Cor padrão para as opções
+
 .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  color: white;
+  padding: 0px 10px 0px 10px;
+
+  .left {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    background-color: #333;
-    color: white;
-    padding: 10px;
+
+    a {
+      text-decoration: none;
+      color: white;
+      font-size: 16px;
+      margin-right: 20px; /* Adiciona um espaço entre o nome do site e as subcategorias */
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      height: 20px; /* Ajusta a altura da ul para preencher toda a altura da navbar */
+
+      li {
+        cursor: pointer;
+        padding: 5px;
+        color: white;// Aplica a cor padrão a todas as opções
+        border-bottom: 1px solid transparent; // Adicione uma borda transparente na parte inferior
+        text-align: center; // Centraliza o texto verticalmente
+        height: 100%; /* Faz as <li> preencherem todo o espaço da ul */
+        margin-right: 30px;
+
+        &:hover {
+          background-color: #444; // Cor de fundo ao passar o mouse
+        }
+
+        &.selected {
+          background-color: transparent; // Aplica a cor de destaque de fundo à opção selecionada
+          color: white; // Aplica a cor branca ao texto para melhor contraste na opção selecionada
+          border-bottom: 1px solid red; // Adicione uma borda vermelha na parte inferior da opção selecionada
+        }
+      }
+    }
   }
-  
-  .left a {
-    text-decoration: none;
-    color: white;
-    font-size: 24px;
-  }
-  
-  .center ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-  }
-  
-  .center li {
-    margin: 0 20px;
-  }
-  
-  .center a {
-    text-decoration: none;
-    color: white;
-  }
-  
+
   .right {
     display: flex;
-  }
-  
-  .btn-register,
-  .btn-login {
-    background-color: #f00; /* Cor de fundo dos botões */
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    margin: 0 10px;
-    cursor: pointer;
-  }
-  
-/* Estilos para telas menores (por exemplo, até 768px) */
-@media (max-width: 768px) {
-    .navbar {
-      justify-content: center;
+
+    .btn-register,
+    .btn-login {
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
     }
-  
-    .left a {
-      display: none;
+
+    .btn-register {
+      background-color:#1F1F1F;
+      border-radius: 8px 0px 0px 8px;
     }
+
+    .btn-login {
+      background-color: #1F1F1F;
+      border-radius: 0px 8px 8px 0px;
+    }
+
+    .btn-register:hover {
+      background-color: #009B3A;
+      border-radius: 8px 0px 0px 8px;
+    }
+
+    .btn-login:hover {
+      background-color: #009B3A;
+      border-radius: 0px 8px 8px 0px;
+    }
+
+    .container {
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      
+      span {
+        margin-right: 10px; /* Adicione margem à direita para separar o texto da imagem */
+      }
+    }
+
+    #country-select {
+      padding: 10px 20px;
+      font-size: 14px;
+      border: none;
+      background: transparent; /* Removendo o fundo branco */
+      color: white;
+      width: 83px; /* Largura pequena para exibir apenas a bandeira */
+      outline: none;
+      margin-right: 10px;
+    }
+
+    #country-select option {
+      background-color: #333;
+      color: #fff;
+      outline: none;
+      border: none;
+    }
+  }
+
+  
+
+  /* Estilos para telas menores (por exemplo, até 768px) */
+  @media (max-width: 768px) {
+    justify-content: center;
 
     .right {
       display: none;
     }
   }
-  
+}
