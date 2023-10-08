@@ -10,14 +10,14 @@ const routes: Routes = [
     component: LayoutAuthComponent,
     children: [
       {
-        path: 'preMatch',
+        path: 'pre-match',
         loadChildren: () => loadRemoteModule(
           { 
             type: 'module',
             remoteEntry: 'http://localhost:3000/remoteEntry.js',
             exposedModule: './Module',
           }
-        ).then(mfe => mfe.AppModule),
+        ).then(mfe => mfe.ContainerAuthModule),
         data: {
           loaderMessage: 'Carregando conteúdo.'
         },

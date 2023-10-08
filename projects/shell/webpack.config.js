@@ -35,13 +35,13 @@ module.exports = {
       library: { type: "module" },
       remoteType: "var",
       remotes: {
-        preMatch: "http://localhost:3000/remoteEntry.js",
+        prematch: "http://localhost:3000/remoteEntry.js",
       },
 
       shared: share({
-        "@angular/core": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 
-        "@angular/common": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 
-        "@angular/common/http": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 
+        "@angular/core": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
+        "@angular/common": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
+        "@angular/common/http": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
         "@angular/router": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
 
         ...sharedMappings.getDescriptors()

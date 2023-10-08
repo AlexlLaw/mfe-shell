@@ -11,7 +11,9 @@ import { Component } from '@angular/core';
     </if-shell-navbar-subCategories>
 
     <if-shell-body>
+
     </if-shell-body>
+    <router-outlet></router-outlet>
   `,
   styles: [
   ]
